@@ -1,6 +1,7 @@
 package com.isga.quran.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Surah(
     val id: Int,
@@ -10,5 +11,5 @@ data class Surah(
     val type: String,
     @SerializedName("total_verses")
     val totalVerses: Int,
-    val verses: List<Verses>
-)
+    val verses: List<Verse>
+): Serializable

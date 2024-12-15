@@ -1,10 +1,10 @@
 package com.isga.quran.data
 
-//import kotlinx.serialization.Serializable
+import java.io.Serializable
 
-//@Serializable
-data class Verses(
+
+data class Verse(
     val id: Int,
     val text: String,
     val translation: String
-)
+): Serializable
