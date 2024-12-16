@@ -2,6 +2,7 @@ package com.isga.quran
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.isga.quran.adapter.SurahAdapter
 import com.isga.quran.adapter.VerseAdapter
 import com.isga.quran.data.Surah
+import com.isga.quran.network.RetrofitClient
+import com.isga.quran.utils.downloadFile
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
 
 class VerseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +38,7 @@ class VerseActivity: AppCompatActivity() {
 
             val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewSurah)
             recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = VerseAdapter(verses = chapter.verses)
+            recyclerView.adapter = VerseAdapter(surah = chapter, context = applicationContext)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.surahMain)) { v, insets ->
@@ -42,4 +49,6 @@ class VerseActivity: AppCompatActivity() {
 
 
     }
+
+
 }
