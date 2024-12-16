@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 //    kotlin("plugin.serialization") version "2.1.0"
-    id("com.google.gms.google-services") version "4.4.2" apply false // Plugin Google Services
+//    id("com.google.gms.google-services") version "4.4.2" apply false // Plugin Google Services
 
 }
 
@@ -64,10 +64,10 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
 
     //google
-    implementation(platform("com.google.firebase:firebase-bom:31.5.0"))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.android.gms:play-services-auth:20.5.0")
-    implementation("com.google.android.gms:play-services-ads:23.6.0")
+//    implementation(platform("com.google.firebase:firebase-bom:31.5.0"))
+//    implementation("com.google.firebase:firebase-auth-ktx")
+//    implementation("com.google.android.gms:play-services-auth:20.5.0")
+//    implementation("com.google.android.gms:play-services-ads:23.6.0")
 
 //    implementation(libs.mediation.test.suite)
 //    implementation(libs.google.firebase.auth) // RecyclerView library
