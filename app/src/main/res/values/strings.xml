@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Quran</string>
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="login">Login</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="welcome_message">Welcome to the Quran App</string>
+    <!--  Google Sign-In  -->
+    <string name="google_sign_in">Sign In with Google</string>
+    <string name="WEB_CLIENT_ID">799003422446-6v42t4m4pe3s6gb3d1qumcj48urng7tq.apps.googleusercontent.com</string>
+    <!--  Error messages  -->
+    <string name="error_message">Something went wrong. Please try again.</string>
+    <string name="loading">Loading..</string>
+    <string name="logout">logout</string>
+    <string name="sign_up_with_google">Sign Up or Sign In with Google</string>
 </resources>

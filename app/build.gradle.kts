@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 //    kotlin("plugin.serialization") version "2.1.0"
 //    id("com.google.gms.google-services") version "4.4.2" apply false // Plugin Google Services
 
@@ -49,6 +50,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,11 +67,16 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
 
     //google
-//    implementation(platform("com.google.firebase:firebase-bom:31.5.0"))
-//    implementation("com.google.firebase:firebase-auth-ktx")
-//    implementation("com.google.android.gms:play-services-auth:20.5.0")
-//    implementation("com.google.android.gms:play-services-ads:23.6.0")
+    // Import the BoM for the Firebase platform
+    implementation(libs.firebase.bom)
 
-//    implementation(libs.mediation.test.suite)
-//    implementation(libs.google.firebase.auth) // RecyclerView library
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(libs.firebase.auth)
+
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation(libs.play.services.auth)
+    implementation (libs.androidx.credentials)
+    implementation (libs.credentials.play.services.auth)
+    implementation (libs.googleid)
 }
