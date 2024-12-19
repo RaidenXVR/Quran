@@ -13,6 +13,8 @@ import com.isga.quran.R
 import com.isga.quran.data.Surah
 import com.isga.quran.data.Verse
 import com.isga.quran.utils.fetchVerseInSurah
+import com.isga.quran.utils.parseSurah
+import com.isga.quran.utils.surahList
 
 class VerseAdapter(
     private val surah: Surah,
@@ -20,9 +22,15 @@ class VerseAdapter(
 ) : RecyclerView.Adapter<VerseAdapter.VerseViewHolder>() {
 
     class VerseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val verseText: TextView = view.findViewById(R.id.tvVerseText)
-        val verseTranslation: TextView = view.findViewById(R.id.tvVerseTranslation)
-        fun bind(verse:Verse, verseId: Int, surahId:Int, context: Context ) {
+        private val verseText: TextView = view.findViewById(R.id.tvVerseText)
+        private val verseTranslation: TextView = view.findViewById(R.id.tvVerseTranslation)
+        fun bind(surahId: Int, verseId: Int = 1, context: Context) {
+            val verse: Verse = if (surahList.isNotEmpty()) {
+                Log.d("get from surahList", surahList[surahId-1].name)
+                surahList[surahId - 1].verses[verseId - 1]
+            } else {
+                parseSurah(context)[surahId - 1].verses[verseId - 1]
+            }
             verseText.text = verse.text
             verseTranslation.text = verse.translation
             itemView.focusable = FOCUSABLE
@@ -31,7 +39,7 @@ class VerseAdapter(
 
             }
             itemView.setOnLongClickListener {
-               
+
 
                 true
             }
@@ -45,8 +53,7 @@ class VerseAdapter(
     }
 
     override fun onBindViewHolder(holder: VerseViewHolder, position: Int) {
-        val verse = surah.verses[position]
-        holder.bind(verse, position+1, surah.id, context)
+        holder.bind( surah.id,position + 1, context)
     }
 
     override fun getItemCount() = surah.verses.size

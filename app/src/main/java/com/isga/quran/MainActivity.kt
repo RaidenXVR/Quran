@@ -16,12 +16,15 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.isga.quran.adapter.SurahAdapter
 import com.isga.quran.data.Surah
+import com.isga.quran.utils.FirestoreInstance
+import com.isga.quran.utils.parseSurah
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
 
         val surah: List<Surah> = parseSurah(this)
 
@@ -51,14 +54,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun assetJSONReader(context: Context, filename: String): String {
-        return context.assets.open(filename).bufferedReader().use { it.readText() }
 
-    }
-
-    fun parseSurah(context: Context): List<Surah> {
-        val jsonString = assetJSONReader(context, "quran_en.json")
-        val surahListType = object : TypeToken<List<Surah>>() {}.type
-        return Gson().fromJson(jsonString, surahListType)
-    }
 }
