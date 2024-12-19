@@ -31,6 +31,7 @@ class VerseActivity: AppCompatActivity() {
         // Retrieve the Chapter object
         val chapter = intent.getSerializableExtra("verses") as? Surah
 
+
         // Display the chapter name and verses
         val chapterTitle: TextView = findViewById(R.id.tvSurahName)
         if (chapter != null) {

@@ -34,6 +34,7 @@ class SurahAdapter(
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_chapter, parent, false)
         return ChapterViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ChapterViewHolder, position: Int) {
