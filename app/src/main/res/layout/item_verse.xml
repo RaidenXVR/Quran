@@ -22,12 +22,14 @@
         android:layout_marginBottom="8dp">
 
             <RelativeLayout
+                android:id="@+id/verseBookmark"
                 android:background="@drawable/ic_bookmark_border"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="8dp" />
 
             <RelativeLayout
+                android:id="@+id/verseListen"
                 android:background="@drawable/ic_listen"
                 android:layout_width="25dp"
                 android:layout_height="25dp" />
@@ -37,18 +39,19 @@
             android:id="@+id/tvVerseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:gravity="end"
             android:textAlignment="viewEnd"
+
             />
 
         <TextView
             android:id="@+id/tvVerseTranslation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="#757575"
             />
 

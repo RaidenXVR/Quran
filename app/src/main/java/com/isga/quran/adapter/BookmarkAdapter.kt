@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.isga.quran.R
 import com.isga.quran.data.Bookmark
+import com.isga.quran.utils.surahList
 
 class BookmarkAdapter(
     private val bookmarks: List<Bookmark>
@@ -18,8 +19,9 @@ class BookmarkAdapter(
         val verseText: TextView = view.findViewById(R.id.tvVerseText)
 
         fun bind(bookmark: Bookmark) {
-            chapterName.text = bookmark.chapterName
-            verseText.text = bookmark.verseText
+            val bm = surahList[bookmark.surahID-1].verses[bookmark.verseID-1]
+            chapterName.text = surahList[bookmark.surahID-1].transliteration
+            verseText.text = bm.text
         }
     }
 

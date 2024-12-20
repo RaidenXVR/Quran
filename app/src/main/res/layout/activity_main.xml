@@ -43,5 +43,13 @@
         android:background="@color/green5"
         app:menu="@menu/nav_botton"
         app:layout_constraintBottom_toBottomOf="parent" />
-
+    <Button
+        android:id="@+id/navigateToLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
