@@ -2,9 +2,182 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingActivity">
+    tools:context=".SettingActivity"
+    android:id="@+id/main">
+
+    <!-- Header Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerCard"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/green5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/appNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="Qur'an Q"
+            android:textColor="@color/green1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/headerCard"
+            app:layout_constraintBottom_toTopOf="@id/settingContainer"/>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Isi Setting -->
+    <LinearLayout
+        android:id="@+id/settingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:weightSum="1"
+        app:layout_constraintTop_toBottomOf="@id/headerCard"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        android:layout_gravity="fill">
+
+        <!-- Mode -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/textMode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Mode"
+                android:textStyle="bold"
+                android:textColor="@color/green1"
+                android:textSize="18sp"
+                android:layout_weight="0.4"
+                android:gravity="center_vertical"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.6">
+                <RadioButton
+                    android:id="@+id/radioLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Light"
+                    android:paddingRight="12dp"
+                    android:checked="true" />
+                <RadioButton
+                    android:id="@+id/radioDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Bahasa -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/textLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bahasa"
+                android:textColor="@color/green1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="0.4" />
+
+            <Spinner
+                android:id="@+id/spinnerLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6" />
+        </LinearLayout>
+
+        <!-- Jenis Suara -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/textVoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Jenis Suara"
+                android:textColor="@color/green1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="0.4" />
+
+            <Spinner
+                android:id="@+id/spinnerVoice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6" />
+        </LinearLayout>
+
+        <!-- Ukuran Font -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/textFontSize"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ukuran Font"
+                android:textColor="@color/green1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_weight="0.4" />
+
+            <Spinner
+                android:id="@+id/spinnerFontSize"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6" />
+        </LinearLayout>
+
+        <!--Button Logout-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="40dp"
+            android:gravity="top|center_horizontal"
+            >
+
+            <Button
+                android:id="@+id/logout_buttonButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:background="@drawable/button_background"
+                android:textColor="@color/green5" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green5"
+        app:menu="@menu/nav_botton"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
