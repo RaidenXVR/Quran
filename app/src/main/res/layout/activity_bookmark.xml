@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvChapterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Surah"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvVerseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Isi Ayat"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp"/>
+
+
+</LinearLayout>
