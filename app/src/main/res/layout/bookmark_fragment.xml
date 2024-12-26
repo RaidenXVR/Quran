@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookmarkActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+
         android:id="@+id/headerCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        app:cardElevation="8dp"
+        android:backgroundTint="@color/green5">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/last_read_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/green5"
         app:layout_constraintTop_toTopOf="parent"
         app:cardElevation="8dp"
+        app:cardCornerRadius="20dp"
+        android:padding="20dp"
+        android:layout_margin="6dp"
+
         >
 
         <LinearLayout
@@ -23,63 +35,55 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/lastread"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Read"
+                android:text="@string/last_read"
                 android:layout_gravity="center"
-                android:textColor="@color/green1"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/lastreadsurah"
+                android:id="@+id/last_read_surah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last read name surah"
-                android:textColor="@color/green1"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 />
 
             <TextView
-                android:id="@+id/lastreadAyat"
+                android:id="@+id/last_read_ayat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last read ayat"
-                android:textColor="@color/green1"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:gravity="end"
                 android:textAlignment="viewEnd"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+    </androidx.cardview.widget.CardView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bookmarkRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:fastScrollEnabled="true"
         android:scrollbars="vertical"
+        app:fastScrollVerticalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollVerticalTrackDrawable="@drawable/scrollbar_track_drawable"
+        app:fastScrollHorizontalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollHorizontalTrackDrawable="@drawable/scrollbar_track_drawable"
+        android:scrollbarTrackVertical="@drawable/scrollbar_track_drawable"
+        android:scrollbarThumbVertical="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarTrackHorizontal="@drawable/scrollbar_track_drawable"
+
+        android:scrollbarSize="10dp"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@id/headerCard"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green5"
-        app:menu="@menu/nav_bottom"
-        app:layout_constraintBottom_toBottomOf="parent" />
-    <Button
-        android:id="@+id/navigateToLoginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
-

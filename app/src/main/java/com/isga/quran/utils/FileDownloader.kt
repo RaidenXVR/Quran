@@ -65,11 +65,12 @@ fun fetchVerseInSurah(recitationId: String, chapterNumber: Int, verseNumber:Int,
     CoroutineScope(Dispatchers.Main).launch {
         try {
             val verseKey = "${chapterNumber}:${verseNumber}"
+            Log.d("Voice num", recitationId)
             val apiResponse = RetrofitClient.instance.getOneVerseInSurah(recitationId, verseKey)
 //            Log.d("URL Delimited",apiResponse.audioFiles[0].url.split("/").toString())
 //            Log.d("One Audio Downloaded", apiResponse.audioFiles[0].toString())
             val names = apiResponse.audioFiles[0].url.split("/")
-            val filename = "${names[0]}_${names[1]}_${names[3]}"
+            val filename = if (names.size ==4 ) "${names[0]}_${names[1]}_${names[3]}" else "${names[0]}_${names[1]}_${names[2]}"
             val file = File(context.filesDir,filename)
             Log.d("debug file", filename)
             if (!file.exists()) {

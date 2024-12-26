@@ -6,4 +6,6 @@ object FirestoreInstance {
     val db: FirebaseFirestore by lazy {
         FirebaseFirestore.getInstance()
     }
+
 }
+

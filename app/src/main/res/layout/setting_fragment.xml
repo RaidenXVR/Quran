@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Isi Setting -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:weightSum="1"
+    android:layout_gravity="fill">
+
+    <!-- Mode -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/textMode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/theme"
+            android:textStyle="bold"
+            android:textColor="@color/green1"
+            android:textSize="18sp"
+            android:layout_weight="0.4"
+            android:gravity="center_vertical"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroupMode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="0.6"
+            >
+
+            <RadioButton
+                android:id="@+id/radioLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/light_mode"
+                android:paddingEnd="12dp"
+                app:buttonTint="@color/green5"
+                android:checked="true"
+                tools:ignore="RtlSymmetry" />
+            <RadioButton
+                android:id="@+id/radioDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:buttonTint="@color/green5"
+                android:text="@string/dark_mode" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- Bahasa -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/textLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/language"
+            android:textColor="@color/green1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_weight="0.4" />
+
+        <Spinner
+            android:id="@+id/spinnerLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green5"
+            android:layout_weight="0.6" />
+    </LinearLayout>
+
+    <!-- Jenis Suara -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/textVoice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/qari"
+            android:textColor="@color/green1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_weight="0.4" />
+
+        <Spinner
+            android:id="@+id/spinnerVoice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green5"
+            android:layout_weight="0.6" />
+    </LinearLayout>
+
+    <!-- Ukuran Font -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/textFontSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/font_size"
+            android:textColor="@color/green1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_weight="0.4" />
+
+        <Spinner
+            android:id="@+id/spinnerFontSize"
+            android:layout_width="0dp"
+            android:backgroundTint="@color/green5"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6" />
+    </LinearLayout>
+
+    <!--Button Logout-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:gravity="top|center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:backgroundTint="@color/green5"
+            android:textColor="@color/black"
+
+             />
+    </LinearLayout>
+
+</LinearLayout>

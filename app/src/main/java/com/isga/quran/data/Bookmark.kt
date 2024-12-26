@@ -1,6 +1,7 @@
 package com.isga.quran.data
 
-class Bookmark(
-    val surahID: Int,
-    val verseID: Int
+data class Bookmark(
+
+    val surahID: Int =0,
+    val verseID: Int =0
 )

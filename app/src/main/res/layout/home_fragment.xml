@@ -1,35 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:id="@+id/surahMain">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/headerCard"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:cardBackgroundColor="@color/green5"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tvSurahName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="16dp"
-            android:text="Qur'an Q"
-            android:textColor="@color/green1"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
-
+    android:id="@+id/homeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSurah"
+        android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         app:fastScrollEnabled="true"
         android:scrollbars="vertical"
         app:fastScrollVerticalThumbDrawable="@drawable/scrollbar_thumb_drawable"
@@ -41,6 +21,9 @@
         android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb_drawable"
         android:scrollbarTrackHorizontal="@drawable/scrollbar_track_drawable"
 
-        android:scrollbarSize="10dp"/>
+        android:scrollbarSize="10dp"
+        />
 
+    <!--        app:layout_constraintTop_toBottomOf="@id/headerCard"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"-->
 </LinearLayout>

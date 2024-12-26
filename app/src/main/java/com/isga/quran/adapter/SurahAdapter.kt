@@ -19,10 +19,12 @@ class SurahAdapter(
         var id: Int = 0
         val chapterName: TextView = view.findViewById(R.id.tvChapterName)
         val translation: TextView = view.findViewById(R.id.tvTranslation)
+        val surahNumber: TextView = view.findViewById(R.id.surah_number)
 
         fun bind(chapter: Surah, onSurahClick: (Surah) -> Unit) {
             chapterName.text = chapter.transliteration
             translation.text = chapter.translation
+            surahNumber.text = chapter.id.toString()
 
             itemView.setOnClickListener {
                 onSurahClick(chapter)

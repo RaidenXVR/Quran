@@ -24,22 +24,31 @@
             <RelativeLayout
                 android:id="@+id/verseBookmark"
                 android:background="@drawable/ic_bookmark_border"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="8dp" />
 
             <RelativeLayout
                 android:id="@+id/verseListen"
                 android:background="@drawable/ic_listen"
-                android:layout_width="25dp"
-                android:layout_height="25dp" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/verseLastRead"
+                android:background="@drawable/ic_outline_flag"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tvVerseText"
+            android:fontFamily="@font/utsmanic"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:gravity="end"

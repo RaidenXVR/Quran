@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Log Out"
-                android:background="@drawable/button_background"
+                android:background="@color/green5"
                 android:textColor="@color/green5" />
         </LinearLayout>
 
@@ -176,7 +176,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/green5"
-        app:menu="@menu/nav_botton"
+        app:menu="@menu/nav_bottom"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

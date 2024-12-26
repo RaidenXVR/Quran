@@ -1,11 +1,14 @@
 package com.isga.quran.adapter
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.isga.quran.R
+import com.isga.quran.VerseActivity
 import com.isga.quran.data.Bookmark
 import com.isga.quran.utils.surahList
 
@@ -15,13 +18,20 @@ class BookmarkAdapter(
 
     // ViewHolder class untuk item bookmark
     class BookmarkViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val chapterName: TextView = view.findViewById(R.id.tvChapterName)
-        val verseText: TextView = view.findViewById(R.id.tvVerseText)
+        private val chapterName: TextView = view.findViewById(R.id.tvChapterName)
+        private val verseText: TextView = view.findViewById(R.id.tvVerseText)
 
         fun bind(bookmark: Bookmark) {
             val bm = surahList[bookmark.surahID-1].verses[bookmark.verseID-1]
-            chapterName.text = surahList[bookmark.surahID-1].transliteration
+            chapterName.text = itemView.context.getString(R.string.verse_info,surahList[bookmark.surahID-1].transliteration,bookmark.verseID)
             verseText.text = bm.text
+            itemView.setOnClickListener {
+
+                val intent = Intent(itemView.context, VerseActivity::class.java)
+                intent.putExtra("verses", surahList[bookmark.surahID-1])
+                intent.putExtra("bookmarked_verse", bookmark.verseID)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 
