@@ -15,8 +15,9 @@ import com.isga.quran.VerseActivity
 import com.isga.quran.adapter.BookmarkAdapter
 import com.isga.quran.data.Bookmark
 import com.isga.quran.utils.FirestoreInstance
-import com.isga.quran.utils.bookmarkList
-import com.isga.quran.utils.lastRead
+import com.isga.quran.utils.UserData.bookmarkList
+import com.isga.quran.utils.UserData.lastRead
+
 import com.isga.quran.utils.surahList
 
 class BookmarkFragment : Fragment() {
@@ -38,24 +39,24 @@ class BookmarkFragment : Fragment() {
         val lastReadVerse: TextView = view.findViewById(R.id.last_read_ayat)
         val lastReadSurah: TextView = view.findViewById(R.id.last_read_surah)
         val lastReadCard: CardView = view.findViewById(R.id.last_read_card)
-        if (lastRead != null) {
-            val lrSurah = surahList[lastRead!!.surahID - 1]
-            lastReadVerse.text = lrSurah.verses[lastRead!!.verseID - 1].text
+        if (lastRead.value != null) {
+            val lrSurah = surahList[lastRead.value!!.surahID - 1]
+            lastReadVerse.text = lrSurah.verses[lastRead.value!!.verseID - 1].text
             lastReadSurah.text =
-                getString(R.string.verse_info, lrSurah.transliteration, lastRead!!.verseID)
+                getString(R.string.verse_info, lrSurah.transliteration, lastRead.value!!.verseID)
         }
 
         lastReadCard.setOnClickListener {
-            if (lastRead != null) {
+            if (lastRead.value != null) {
                 val intent = Intent(context, VerseActivity::class.java)
-                intent.putExtra("verses", surahList[lastRead!!.surahID-1])
-                intent.putExtra("bookmarked_verse", lastRead!!.verseID)
+                intent.putExtra("verses", surahList[lastRead.value!!.surahID-1])
+                intent.putExtra("bookmarked_verse", lastRead.value!!.verseID)
                 startActivity(intent)
             }
         }
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.bookmarkRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = BookmarkAdapter(bookmarkList)
+        recyclerView.adapter = BookmarkAdapter(bookmarkList.value!!)
     }
 }

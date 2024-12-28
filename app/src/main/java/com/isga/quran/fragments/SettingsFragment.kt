@@ -1,5 +1,9 @@
 package com.isga.quran.fragments
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -15,11 +19,16 @@ import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.isga.quran.R
 import com.isga.quran.SignInActivity
+import com.isga.quran.data.Reminder
+import com.isga.quran.utils.createNotificationChannelFun
 import com.isga.quran.utils.parseSurah
+import com.isga.quran.utils.scheduleAllReminders
 import kotlin.math.log
 
 class SettingsFragment: Fragment() {
@@ -30,6 +39,7 @@ class SettingsFragment: Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var parentView: View
     private lateinit var logoutButton: Button
+    private lateinit var debugButt: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +57,22 @@ class SettingsFragment: Fragment() {
         spinnerVoice =view.findViewById(R.id.spinnerVoice)
         spinnerFontSize =view.findViewById(R.id.spinnerFontSize)
         logoutButton = view.findViewById(R.id.logout_button)
+
+        debugButt = view.findViewById(R.id.debug_butt)
+
+        debugButt.setOnClickListener {
+            val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val activeNotifications = notificationManager.activeNotifications
+
+            if (activeNotifications.isEmpty()) {
+                Log.d("Notification", "No active notifications")
+            } else {
+                for (notification in activeNotifications) {
+                    Log.d("Notification", "Active notification: ${notification.id}")
+                }
+            }
+        }
+
         parentView = view
 
         // Set up SharedPreferences
@@ -54,6 +80,11 @@ class SettingsFragment: Fragment() {
 
         //logout
         logoutButton.setOnClickListener {
+            val pref = requireContext().getSharedPreferences("QuranUserData", MODE_PRIVATE)
+            val edit = pref.edit()
+            edit.putBoolean("noAccount", false)
+            edit.apply()
+
             val auth = FirebaseAuth.getInstance()
             auth.signOut()
             val intent = Intent(requireContext(), SignInActivity::class.java)
@@ -123,6 +154,7 @@ class SettingsFragment: Fragment() {
         val isDarkMode = sharedPreferences.getBoolean("mode", false)
         val selectedMode = if (isDarkMode) R.id.radioDark else R.id.radioLight
         parentView.findViewById<RadioButton>(selectedMode).isChecked = true
+        AppCompatDelegate.setDefaultNightMode(if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO)
 
         // Load language
         val languagePosition = sharedPreferences.getInt("language", 0)
@@ -143,6 +175,7 @@ class SettingsFragment: Fragment() {
         // Save mode
         val isDarkMode = radioGroupMode.checkedRadioButtonId == R.id.radioDark
         editor.putBoolean("mode", isDarkMode)
+        AppCompatDelegate.setDefaultNightMode(if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO)
 
         // Save language
         val languagePosition = spinnerLanguage.selectedItemPosition
@@ -159,5 +192,17 @@ class SettingsFragment: Fragment() {
 
         parseSurah(requireContext())
         editor.apply()
+    }
+
+    private fun createNotificationChannel() {
+        val channel = NotificationChannel(
+            "ReminderChannel",
+            "Daily Reminder",
+            NotificationManager.IMPORTANCE_HIGH
+        ).apply {
+            description = "Channel for daily reminders"
+        }
+        val manager = requireContext().getSystemService(NotificationManager::class.java)
+        manager?.createNotificationChannel(channel)
     }
 }

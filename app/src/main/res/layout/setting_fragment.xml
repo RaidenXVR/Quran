@@ -144,8 +144,15 @@
             android:text="@string/logout"
             android:backgroundTint="@color/green5"
             android:textColor="@color/black"
-
              />
+        <Button
+            android:id="@+id/debug_butt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Debug"
+
+
+            />
     </LinearLayout>
 
 </LinearLayout>

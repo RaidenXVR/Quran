@@ -43,6 +43,7 @@ class SurahAdapter(
         val chapter = surah[position]
         holder.id = chapter.id
         holder.bind(chapter, onSurahClick)
+
     }
 
     override fun getItemCount() = surah.size

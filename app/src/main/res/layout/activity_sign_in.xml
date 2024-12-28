@@ -9,11 +9,13 @@
     android:background="@drawable/bg">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:background="@drawable/border"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
+        android:background="@color/blue">
 
         <ImageView
             android:layout_width="28dp"
@@ -24,22 +26,31 @@
             android:layout_marginLeft="11dp"
             android:layout_marginRight="11dp"
             android:background="@color/white"
-            android:src="@drawable/google"/>
+            android:src="@drawable/google" />
 
         <Button
             android:id="@+id/signInButton"
-            android:textAllCaps="false"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:text="@string/sign_up_with_google"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
-
-
     </LinearLayout>
 
+    <Button
+        android:id="@+id/no_sign_in_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/linearLayout"
+        android:text="@string/no_sign_in"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="255dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/green1"
+        />
 
 
 </RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/reminderFragment">
+    <Button
+        android:id="@+id/add_reminder"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/green1"
+        android:layout_height="wrap_content"
+        android:text="@string/add_reminder"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reminderRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:fastScrollEnabled="true"
+        android:scrollbars="vertical"
+        app:fastScrollVerticalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollVerticalTrackDrawable="@drawable/scrollbar_track_drawable"
+        app:fastScrollHorizontalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollHorizontalTrackDrawable="@drawable/scrollbar_track_drawable"
+        android:scrollbarTrackVertical="@drawable/scrollbar_track_drawable"
+        android:scrollbarThumbVertical="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarTrackHorizontal="@drawable/scrollbar_track_drawable"
+        android:scrollbarSize="10dp"
+        />
+
+    <!--        app:layout_constraintTop_toBottomOf="@id/headerCard"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"-->
+</LinearLayout>

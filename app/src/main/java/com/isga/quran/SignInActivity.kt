@@ -28,7 +28,6 @@ class SignInActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -37,11 +36,13 @@ class SignInActivity : AppCompatActivity() {
 
 
         val currentUser = auth.currentUser
+        val pref = getSharedPreferences("QuranUserData", MODE_PRIVATE)
 
-        if (currentUser != null) {
+        if (currentUser != null || pref.getBoolean("noAccount", false)) {
             // The user is already signed in, navigate to MainActivity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
             finish() // finish the current activity to prevent the user from coming back to the SignInActivity using the back button
         }
 
@@ -50,6 +51,18 @@ class SignInActivity : AppCompatActivity() {
         signInButton.setOnClickListener {
             signIn()
         }
+        val noSignInButton: Button = findViewById(R.id.no_sign_in_button)
+        noSignInButton.setOnClickListener {
+            val edit = pref.edit()
+
+            edit.putBoolean("noAccount", true)
+            edit.apply()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            finish()
+        }
+
     }
 
     private fun signIn() {
@@ -94,6 +107,10 @@ class SignInActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
 
                     val user = auth.currentUser
+                    val pref = getSharedPreferences("QuranUserData", MODE_PRIVATE)
+                    val edit = pref.edit()
+                    edit.putBoolean("noAccount", false)
+                    edit.apply()
                     Toast.makeText(this, "Signed in as ${user?.displayName}", Toast.LENGTH_SHORT)
                         .show()
                     startActivity(Intent(this, MainActivity::class.java))

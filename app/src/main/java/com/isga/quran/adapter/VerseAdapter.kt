@@ -18,13 +18,9 @@ import com.isga.quran.R
 import com.isga.quran.data.Bookmark
 import com.isga.quran.data.Surah
 import com.isga.quran.data.Verse
-import com.isga.quran.utils.addBookmark
-import com.isga.quran.utils.bookmarkList
+import com.isga.quran.utils.UserData
 import com.isga.quran.utils.fetchVerseInSurah
-import com.isga.quran.utils.lastRead
 import com.isga.quran.utils.parseSurah
-import com.isga.quran.utils.removeBookmark
-import com.isga.quran.utils.setNewLastRead
 import com.isga.quran.utils.surahList
 
 class VerseAdapter(
@@ -65,17 +61,17 @@ class VerseAdapter(
             verseTranslation.text = verse.translation
             itemView.focusable = FOCUSABLE
 
-            var verseBookmarked = bookmarkList.find { bookmark: Bookmark -> bookmark.surahID == surahId && bookmark.verseID == verseId  }
+            var verseBookmarked = UserData.bookmarkList.value?.find { bookmark: Bookmark -> bookmark.surahID == surahId && bookmark.verseID == verseId  }
             Log.d("Verse bookmarked", verseBookmarked.toString())
             verseBookmark.setBackgroundResource(if (verseBookmarked != null) R.drawable.ic_bookmark else R.drawable.ic_bookmark_border)
-            verseLastRead.setBackgroundResource(if (lastRead != null &&
-                lastRead!!.surahID == surahId &&
-                lastRead!!.verseID ==verseId ) R.drawable.ic_flag else R.drawable.ic_outline_flag)
+            verseLastRead.setBackgroundResource(if (UserData.lastRead.value != null &&
+                UserData.lastRead.value?.surahID == surahId &&
+                UserData.lastRead.value?.verseID ==verseId ) R.drawable.ic_flag else R.drawable.ic_outline_flag)
 
             verseBookmark.setOnClickListener {
                 if (verseBookmarked != null) {
                     // Action when the verse is already bookmarked (remove it)
-                    removeBookmark(Bookmark(surahId, verseId)) {isSuccess->
+                    UserData.removeBookmark(context,Bookmark(surahId, verseId)) {isSuccess->
                         if (isSuccess){
 
                             verseBookmarked = null
@@ -90,7 +86,7 @@ class VerseAdapter(
                     }
                 } else {
                     // Action when the verse is not bookmarked (add it)
-                    addBookmark(Bookmark(surahId, verseId)) {isSuccess->
+                    UserData.addBookmark(context,Bookmark(surahId, verseId)) {isSuccess->
                         if (isSuccess){
                             verseBookmarked = Bookmark(surahId, verseId)
                             verseBookmark.setBackgroundResource(R.drawable.ic_bookmark)
@@ -119,7 +115,7 @@ class VerseAdapter(
             }
 
             verseLastRead.setOnClickListener {
-                setNewLastRead(Bookmark(surahId, verseId)) {isSuccess ->
+                UserData.setNewLastRead(context,Bookmark(surahId, verseId)) { isSuccess ->
                     if (isSuccess){
                         verseLastRead.setBackgroundResource(R.drawable.ic_flag)
                         Toast.makeText(context, "Last Read Updated Successfully.", Toast.LENGTH_LONG).show()

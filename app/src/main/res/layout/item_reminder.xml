@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="16dp"
+    android:padding="16dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <RelativeLayout
+                android:id="@+id/reminder_edit"
+                android:background="@drawable/ic_edit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12dp" />
+
+            <RelativeLayout
+                android:id="@+id/reminder_delete"
+                android:background="@drawable/ic_delete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/reminder_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:gravity="end|center_vertical"
+                android:textAlignment="viewEnd"
+                android:text="AAAAAAAAAAAAAAAAAAAAAAA"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reminder_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Qur\'an Q</string>
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="login">Login</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="welcome_message">Welcome to the Quran App</string>
+    <!--  Google Sign-In  -->
+    <string name="google_sign_in">Sign In with Google</string>
+    <string name="WEB_CLIENT_ID">799003422446-6v42t4m4pe3s6gb3d1qumcj48urng7tq.apps.googleusercontent.com</string>
+    <!--  Error messages  -->
+    <string name="error_message">Something went wrong. Please try again.</string>
+    <string name="loading">Loading..</string>
+    <string name="logout">log Out</string>
+
+    <!--  Helpers  -->
+    <string name="verse_info">%s，第 %d 节</string>
+    <string name="last_read">最后阅读</string>
+    <string name="font_size">字体大小</string>
+    <string name="qari">诵读者</string>
+    <string name="language">语言</string>
+    <string name="light_mode">浅色模式</string>
+    <string name="dark_mode">深色模式</string>
+    <string name="theme">主题</string>
+    <string name="home">主页</string>
+    <string name="bookmark">书签</string>
+    <string name="settings">设置</string>
+    <string name="sign_up_with_google">通过 Google 登录</string>
+    <string name="no_sign_in">继续无需登录</string>
+
+
+
+    <string-array name="languages">
+        <item>Bahasa Indonesia</item>
+        <item>বাংলা </item>
+        <item>English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Русский</item>
+        <item>Svenska</item>
+        <item>Türkçe</item>
+        <item>اردو </item>
+        <item>中文</item>
+    </string-array>
+
+    <string-array name="voice_options">
+        <item>AbdulBaset AbdulSamad</item>
+        <item>Mishari Rashid al-`Afasy</item>
+        <item>Hani ar-Rifai</item>
+        <item>Abu Bakr al-Shatri</item>
+        <item>Abdur-Rahman as-Sudais</item>
+    </string-array>
+
+    <string-array name="font_sizes">
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+        <item>26</item>
+        <item>28</item>
+        <item>30</item>
+        <item>32</item>
+        <item>34</item>
+
+    </string-array>
+
+
+</resources>
