@@ -27,6 +27,23 @@
     <string name="settings">Paramètres</string>
     <string name="sign_up_with_google">Se connecter avec Google</string>
     <string name="no_sign_in">Continuer sans se connecter</string>
+    <string name="add_reminder">Ajouter un Rappel</string>
+    <string name="select_time">Sélectionner l\'Heure</string>
+    <string name="reminder_name_hint">Entrez le Nom du Rappel</string>
+    <string name="set_reminder_name">Nom du Rappel</string>
+    <string name="set_time_name">Heure du Rappel</string>
+    <string name="cancel">Annuler</string>
+    <string name="confirm">Confirmer</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">Entrée Vide !</string>
+    <string name="reminder_input_empty_message">Les champs nom et heure doivent être remplis.</string>
+    <string name="reminder_exist_title">Le rappel existe déjà !</string>
+    <string name="reminder_exist_message">Un rappel avec le même nom ou heure existe déjà, essayez une autre valeur.</string>
+    <string name="reminder">Rappel</string>
+    <string name="general_data_error">Une erreur s\'est produite lors de l\'enregistrement des données.</string>
+    <string name="reminder_message">Avez-vous lu le Coran aujourd\'hui ? Vous avez créé un rappel à cette heure.</string>
+    <string name="reminder_cancel_success">Rappel supprimé avec succès.</string>
+    <string name="reminder_update_success">Rappel modifié avec succès.</string>
 
 
     <string-array name="languages">

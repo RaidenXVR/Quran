@@ -27,6 +27,23 @@
     <string name="settings">Настройки</string>
     <string name="sign_up_with_google">Войти через Google</string>
     <string name="no_sign_in">Продолжить без входа</string>
+    <string name="add_reminder">Добавить Напоминание</string>
+    <string name="select_time">Выберите Время</string>
+    <string name="reminder_name_hint">Введите Название Напоминания</string>
+    <string name="set_reminder_name">Название Напоминания</string>
+    <string name="set_time_name">Время Напоминания</string>
+    <string name="cancel">Отмена</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">Пустой ввод!</string>
+    <string name="reminder_input_empty_message">Поля имени и времени должны быть заполнены.</string>
+    <string name="reminder_exist_title">Напоминание уже существует!</string>
+    <string name="reminder_exist_message">Напоминание с таким временем или именем уже существует, попробуйте ввести другое значение.</string>
+    <string name="reminder">Напоминание</string>
+    <string name="general_data_error">Ошибка при сохранении данных.</string>
+    <string name="reminder_message">Вы читали Коран сегодня? Вы создали напоминание на это время.</string>
+    <string name="reminder_cancel_success">Напоминание успешно удалено.</string>
+    <string name="reminder_update_success">Напоминание успешно изменено.</string>
 
 
 

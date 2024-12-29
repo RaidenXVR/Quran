@@ -27,6 +27,23 @@
     <string name="settings">设置</string>
     <string name="sign_up_with_google">通过 Google 登录</string>
     <string name="no_sign_in">继续无需登录</string>
+    <string name="add_reminder">添加提醒</string>
+    <string name="select_time">选择时间</string>
+    <string name="reminder_name_hint">输入提醒名称</string>
+    <string name="set_reminder_name">提醒名称</string>
+    <string name="set_time_name">提醒时间</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">输入为空！</string>
+    <string name="reminder_input_empty_message">名称和时间字段必须填写。</string>
+    <string name="reminder_exist_title">提醒已存在！</string>
+    <string name="reminder_exist_message">已有相同时间或名称的提醒，请输入其他值。</string>
+    <string name="reminder">提醒</string>
+    <string name="general_data_error">保存数据时发生错误。</string>
+    <string name="reminder_message">今天你读过《古兰经》吗？你已在此时间创建了一个提醒。</string>
+    <string name="reminder_cancel_success">提醒删除成功。</string>
+    <string name="reminder_update_success">提醒修改成功。</string>
 
 
 

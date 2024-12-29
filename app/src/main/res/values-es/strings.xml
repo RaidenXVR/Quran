@@ -27,6 +27,23 @@
     <string name="settings">Ajustes</string>
     <string name="sign_up_with_google">Iniciar sesión con Google</string>
     <string name="no_sign_in">Continuar sin iniciar sesión</string>
+    <string name="add_reminder">Agregar Recordatorio</string>
+    <string name="select_time">Seleccionar Hora</string>
+    <string name="reminder_name_hint">Ingrese el Nombre del Recordatorio</string>
+    <string name="set_reminder_name">Nombre del Recordatorio</string>
+    <string name="set_time_name">Hora del Recordatorio</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">¡Entrada Vacía!</string>
+    <string name="reminder_input_empty_message">Los campos de nombre y hora deben estar completos.</string>
+    <string name="reminder_exist_title">¡El recordatorio ya existe!</string>
+    <string name="reminder_exist_message">Ya hay un recordatorio con el mismo nombre u hora, intente con otro valor.</string>
+    <string name="reminder">Recordatorio</string>
+    <string name="general_data_error">Ocurrió un error al guardar los datos.</string>
+    <string name="reminder_message">¿Has leído el Corán hoy? Has creado un recordatorio para esta hora.</string>
+    <string name="reminder_cancel_success">Recordatorio eliminado con éxito.</string>
+    <string name="reminder_update_success">Recordatorio modificado con éxito.</string>
 
 
 

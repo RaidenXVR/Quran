@@ -27,6 +27,23 @@
     <string name="settings">Inställningar</string>
     <string name="sign_up_with_google">Logga in med Google</string>
     <string name="no_sign_in">Fortsätt utan att logga in</string>
+    <string name="add_reminder">Lägg till Påminnelse</string>
+    <string name="select_time">Välj Tid</string>
+    <string name="reminder_name_hint">Ange Påminnelsens Namn</string>
+    <string name="set_reminder_name">Påminnelsens Namn</string>
+    <string name="set_time_name">Påminnelsens Tid</string>
+    <string name="cancel">Avbryt</string>
+    <string name="confirm">Bekräfta</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">Tom Inmatning!</string>
+    <string name="reminder_input_empty_message">Fälten för namn och tid måste fyllas i.</string>
+    <string name="reminder_exist_title">Påminnelsen finns redan!</string>
+    <string name="reminder_exist_message">Det finns redan en påminnelse med samma tid eller namn, försök med ett annat värde.</string>
+    <string name="reminder">Påminnelse</string>
+    <string name="general_data_error">Ett fel inträffade vid sparning av data.</string>
+    <string name="reminder_message">Har du läst Koranen idag? Du har skapat en påminnelse för den här tiden.</string>
+    <string name="reminder_cancel_success">Påminnelsen har tagits bort.</string>
+    <string name="reminder_update_success">Påminnelsen har uppdaterats.</string>
 
 
 

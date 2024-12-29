@@ -27,6 +27,23 @@
     <string name="settings">ترتیبات</string>
     <string name="sign_up_with_google">گوگل کے ساتھ سائن ان کریں</string>
     <string name="no_sign_in">سائن ان کیے بغیر جاری رکھیں</string>
+    <string name="add_reminder">یاد دہانی شامل کریں</string>
+    <string name="select_time">وقت منتخب کریں</string>
+    <string name="reminder_name_hint">یاد دہانی کا نام درج کریں</string>
+    <string name="set_reminder_name">یاد دہانی کا نام</string>
+    <string name="set_time_name">یاد دہانی کا وقت</string>
+    <string name="cancel">منسوخ کریں</string>
+    <string name="confirm">تصدیق کریں</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">خالی ان پٹ!</string>
+    <string name="reminder_input_empty_message">نام اور وقت کے فیلڈز کو پُر کرنا ضروری ہے۔</string>
+    <string name="reminder_exist_title">یاد دہانی پہلے سے موجود ہے!</string>
+    <string name="reminder_exist_message">ایک یاد دہانی پہلے ہی اسی وقت یا نام کے ساتھ موجود ہے، کوئی اور قدر آزمائیں۔</string>
+    <string name="reminder">یاد دہانی</string>
+    <string name="general_data_error">ڈیٹا محفوظ کرتے وقت ایک خرابی پیش آئی۔</string>
+    <string name="reminder_message">کیا آپ نے آج قرآن پڑھا ہے؟ آپ نے اس وقت پر ایک یاد دہانی بنائی ہے۔</string>
+    <string name="reminder_cancel_success">یاد دہانی کامیابی سے حذف ہو گئی۔</string>
+    <string name="reminder_update_success">یاد دہانی کامیابی سے ترمیم ہو گئی۔</string>
 
 
 

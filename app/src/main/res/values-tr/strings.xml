@@ -27,6 +27,23 @@
     <string name="settings">Ayarlar</string>
     <string name="sign_up_with_google">Google ile Giriş Yap</string>
     <string name="no_sign_in">Giriş Yapmadan Devam Et</string>
+    <string name="add_reminder">Hatırlatıcı Ekle</string>
+    <string name="select_time">Zaman Seç</string>
+    <string name="reminder_name_hint">Hatırlatıcı Adını Girin</string>
+    <string name="set_reminder_name">Hatırlatıcı Adı</string>
+    <string name="set_time_name">Hatırlatıcı Zamanı</string>
+    <string name="cancel">İptal</string>
+    <string name="confirm">Onayla</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">Giriş Boş!</string>
+    <string name="reminder_input_empty_message">Ad ve zaman alanları doldurulmalıdır.</string>
+    <string name="reminder_exist_title">Hatırlatıcı Zaten Var!</string>
+    <string name="reminder_exist_message">Aynı zaman veya ada sahip bir hatırlatıcı var, başka bir değer deneyin.</string>
+    <string name="reminder">Hatırlatıcı</string>
+    <string name="general_data_error">Veri kaydedilirken bir hata oluştu.</string>
+    <string name="reminder_message">Bugün Kur\'an okudunuz mu? Bu saate bir hatırlatıcı oluşturdunuz.</string>
+    <string name="reminder_cancel_success">Hatırlatıcı Başarıyla Silindi.</string>
+    <string name="reminder_update_success">Hatırlatıcı Başarıyla Güncellendi.</string>
 
 
 

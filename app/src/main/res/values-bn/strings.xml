@@ -27,6 +27,23 @@
     <string name="settings">সেটিংস</string>
     <string name="sign_up_with_google">গুগল দিয়ে সাইন ইন করুন</string>
     <string name="no_sign_in">সাইন ইন ছাড়াই চালিয়ে যান</string>
+    <string name="add_reminder">অনুস্মারক যোগ করুন</string>
+    <string name="select_time">সময় নির্বাচন করুন</string>
+    <string name="reminder_name_hint">অনুস্মারকের নাম লিখুন</string>
+    <string name="set_reminder_name">অনুস্মারকের নাম</string>
+    <string name="set_time_name">অনুস্মারকের সময়</string>
+    <string name="cancel">বাতিল করুন</string>
+    <string name="confirm">নিশ্চিত করুন</string>
+    <string name="time_format_24">%s:%s</string>
+    <string name="reminder_input_empty_title">ইনপুট খালি!</string>
+    <string name="reminder_input_empty_message">নাম এবং সময় ক্ষেত্র পূরণ করতে হবে।</string>
+    <string name="reminder_exist_title">অনুস্মারক ইতিমধ্যেই রয়েছে!</string>
+    <string name="reminder_exist_message">একই সময় বা নাম সহ একটি অনুস্মারক রয়েছে, অন্য মান লিখুন।</string>
+    <string name="reminder">অনুস্মারক</string>
+    <string name="general_data_error">তথ্য সংরক্ষণ করতে গিয়ে একটি ত্রুটি হয়েছে।</string>
+    <string name="reminder_message">আজ আপনি কি কুরআন পড়েছেন? আপনি এই সময়ে একটি অনুস্মারক তৈরি করেছেন।</string>
+    <string name="reminder_cancel_success">অনুস্মারক সফলভাবে মুছে ফেলা হয়েছে।</string>
+    <string name="reminder_update_success">অনুস্মারক সফলভাবে সংশোধিত হয়েছে।</string>
 
 
     <string-array name="languages">
