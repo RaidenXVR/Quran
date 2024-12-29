@@ -376,6 +376,7 @@ object UserData {
                             _reminders.value!!.removeIf { r -> r.reminderId == reminder.reminderId }
                             userDoc.update("reminders", FieldValue.arrayUnion(reminder))
                                 .addOnSuccessListener {
+                                    _reminders.value!!.add(reminder)
                                     callback(true)
                                 }.addOnFailureListener { err ->
                                 Log.d("Update reminder", err.message.toString())

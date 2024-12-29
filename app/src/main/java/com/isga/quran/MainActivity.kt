@@ -29,8 +29,11 @@ import com.isga.quran.fragments.ReminderFragment
 import com.isga.quran.fragments.SettingsFragment
 import com.isga.quran.utils.FirestoreInstance
 import com.isga.quran.utils.UserData.getUserData
+import com.isga.quran.utils.UserData.reminders
 import com.isga.quran.utils.debug
+import com.isga.quran.utils.isReminderSet
 import com.isga.quran.utils.parseSurah
+import com.isga.quran.utils.scheduleReminder
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,8 +78,17 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment()).commit()
+
+        }else{
+
+            for (rem in reminders.value!!){
+                if (!isReminderSet(this, rem.reminderId)){
+                    scheduleReminder(rem.reminderId, rem.name, rem.hour, rem.minute, this)
+                }
+            }
         }
     }
 }

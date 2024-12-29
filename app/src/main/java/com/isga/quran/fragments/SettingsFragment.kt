@@ -29,6 +29,7 @@ import com.isga.quran.data.Reminder
 import com.isga.quran.utils.UserData
 import com.isga.quran.utils.cancelReminder
 import com.isga.quran.utils.createNotificationChannelFun
+import com.isga.quran.utils.isReminderSet
 import com.isga.quran.utils.parseSurah
 import com.isga.quran.utils.scheduleAllReminders
 import kotlin.math.log
@@ -60,20 +61,13 @@ class SettingsFragment: Fragment() {
         spinnerFontSize =view.findViewById(R.id.spinnerFontSize)
         logoutButton = view.findViewById(R.id.logout_button)
 
-//        debugButt = view.findViewById(R.id.debug_butt)
-//
-//        debugButt.setOnClickListener {
-//            val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//            val activeNotifications = notificationManager.activeNotifications
-//
-//            if (activeNotifications.isEmpty()) {
-//                Log.d("Notification", "No active notifications")
-//            } else {
-//                for (notification in activeNotifications) {
-//                    Log.d("Notification", "Active notification: ${notification.id}")
-//                }
-//            }
-//        }
+        debugButt = view.findViewById(R.id.debug_butt)
+
+        debugButt.setOnClickListener {
+            for (rem in UserData.reminders.value!!){
+                Log.d("reminders active", isReminderSet(requireContext(), rem.reminderId).toString())
+            }
+        }
 
         parentView = view
 

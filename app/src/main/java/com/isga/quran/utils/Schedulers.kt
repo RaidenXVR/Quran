@@ -201,4 +201,13 @@ fun updateReminder(context: Context, reminderId: Int, hour: Int, minute: Int, na
     }
 }
 
-
+fun isReminderSet(context: Context, reminderId: Int): Boolean {
+    val intent = Intent(context, ReminderNotification::class.java)
+    val pendingIntent = PendingIntent.getBroadcast(
+        context,
+        reminderId,
+        intent,
+        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
+    )
+    return pendingIntent != null
+}

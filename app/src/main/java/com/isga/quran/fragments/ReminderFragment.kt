@@ -35,6 +35,7 @@ import com.isga.quran.data.Reminder
 import com.isga.quran.utils.UserData.reminders
 import com.isga.quran.utils.UserData.setReminder
 import com.isga.quran.utils.createNotificationChannelFun
+import com.isga.quran.utils.isReminderSet
 
 import com.isga.quran.utils.scheduleReminder
 
@@ -140,6 +141,12 @@ class ReminderFragment : Fragment() {
                         arrayOf(Manifest.permission.POST_NOTIFICATIONS),
                         1001
                     )
+                }
+            }
+        } else{
+            for (rem in reminders.value!!){
+                if (!isReminderSet(requireContext(), rem.reminderId)){
+                    scheduleReminder(rem.reminderId, rem.name, rem.hour, rem.minute, requireContext())
                 }
             }
         }
