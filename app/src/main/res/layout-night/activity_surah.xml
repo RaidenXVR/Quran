@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/surahMain"
-    android:background="@drawable/portrait_bg_dark_png">
+    android:background="@drawable/background_image">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/headerCard"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:cardBackgroundColor="@color/green5"
+        app:cardBackgroundColor="@color/green1"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -20,9 +20,18 @@
             android:layout_gravity="center"
             android:padding="16dp"
             android:text="Qur'an Q"
-            android:textColor="@color/green1"
+            android:textColor="@color/green5"
             android:textSize="30sp"
             android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/listen_surah"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center|end"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ic_play"
+            android:backgroundTint="@color/green5"
+            />
     </androidx.cardview.widget.CardView>
 
 

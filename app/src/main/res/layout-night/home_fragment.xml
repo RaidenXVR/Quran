@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/homeFragment"
-    android:background="@drawable/portrait_bg_dark_png">
+    android:background="@drawable/background_image">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRecyclerView"

@@ -30,9 +30,6 @@
         <receiver android:name=".custom.ReminderNotification"
             android:enabled="true" />
         <activity
-            android:name=".BookmarkActivity"
-            android:exported="false" />
-        <activity
             android:name=".SignInActivity"
             android:exported="true" >
             <intent-filter>
@@ -48,9 +45,6 @@
         </activity>
         <activity
             android:name=".VerseActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".SettingActivity"
             android:exported="false"/>
     </application>
 
