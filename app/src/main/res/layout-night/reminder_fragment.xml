@@ -4,11 +4,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:id="@+id/homeFragment"
-    >
+    android:id="@+id/reminderFragment">
+    <Button
+        android:id="@+id/add_reminder"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/green1"
+        android:layout_height="wrap_content"
+        android:text="@string/add_reminder"
+        android:textColor="@color/white"
+
+        />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homeRecyclerView"
+        android:id="@+id/reminderRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:fastScrollEnabled="true"
@@ -21,7 +30,6 @@
         android:scrollbarThumbVertical="@drawable/scrollbar_thumb_drawable"
         android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb_drawable"
         android:scrollbarTrackHorizontal="@drawable/scrollbar_track_drawable"
-
         android:scrollbarSize="10dp"
         />
 

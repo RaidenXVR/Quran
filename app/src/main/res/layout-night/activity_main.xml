@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:padding="16dp"
             android:text="@string/app_name"
-            android:textColor="@color/green5"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>

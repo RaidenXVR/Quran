@@ -19,7 +19,7 @@
         android:id="@+id/last_read_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/green5"
+        app:cardBackgroundColor="@color/green1"
         app:layout_constraintTop_toTopOf="parent"
         app:cardElevation="8dp"
         app:cardCornerRadius="20dp"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/last_read"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 />
 
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp"
                 android:gravity="end"
                 android:textAlignment="viewEnd"/>

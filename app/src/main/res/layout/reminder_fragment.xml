@@ -9,9 +9,10 @@
         android:id="@+id/add_reminder"
         android:layout_width="match_parent"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/green1"
+        android:backgroundTint="@color/green5"
         android:layout_height="wrap_content"
         android:text="@string/add_reminder"
+        android:textColor="@color/black"
 
         />
 

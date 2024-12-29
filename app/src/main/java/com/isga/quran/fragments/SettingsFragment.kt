@@ -42,7 +42,6 @@ class SettingsFragment: Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var parentView: View
     private lateinit var logoutButton: Button
-    private lateinit var debugButt: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,14 +59,6 @@ class SettingsFragment: Fragment() {
         spinnerVoice =view.findViewById(R.id.spinnerVoice)
         spinnerFontSize =view.findViewById(R.id.spinnerFontSize)
         logoutButton = view.findViewById(R.id.logout_button)
-
-        debugButt = view.findViewById(R.id.debug_butt)
-
-        debugButt.setOnClickListener {
-            for (rem in UserData.reminders.value!!){
-                Log.d("reminders active", isReminderSet(requireContext(), rem.reminderId).toString())
-            }
-        }
 
         parentView = view
 

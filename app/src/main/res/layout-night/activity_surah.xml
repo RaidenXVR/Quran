@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:padding="16dp"
             android:text="Qur'an Q"
-            android:textColor="@color/green5"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
         <ImageButton

@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "799003422446-vjcr78bspo28rh97u638oomvsmqeh8sc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isga.quran",
+            "certificate_hash": "89985fcd2c44b4d5bd38ac2fc1e96a5ce8c25720"
+          }
+        },
+        {
           "client_id": "799003422446-6v42t4m4pe3s6gb3d1qumcj48urng7tq.apps.googleusercontent.com",
           "client_type": 3
         }

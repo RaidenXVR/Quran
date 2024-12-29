@@ -10,8 +10,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:weightSum="1"
-    android:layout_gravity="fill"
-    android:background="@drawable/background_image">
+    android:layout_gravity="fill">
 
     <!-- Mode -->
     <LinearLayout
@@ -26,7 +25,7 @@
             android:layout_height="match_parent"
             android:text="@string/theme"
             android:textStyle="bold"
-            android:textColor="@color/green1"
+            android:textColor="@color/green5"
             android:textSize="18sp"
             android:layout_weight="0.4"
             android:gravity="center_vertical"/>
@@ -68,7 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/language"
-            android:textColor="@color/green1"
+            android:textColor="@color/green5"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_weight="0.4" />
@@ -92,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/qari"
-            android:textColor="@color/green1"
+            android:textColor="@color/green5"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_weight="0.4" />
@@ -116,7 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/font_size"
-            android:textColor="@color/green1"
+            android:textColor="@color/green5"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_weight="0.4" />
@@ -148,14 +147,6 @@
             android:textColor="@color/black"
 
              />
-        <Button
-            android:id="@+id/debug_butt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Debug"
-
-
-            />
     </LinearLayout>
 
 </LinearLayout>

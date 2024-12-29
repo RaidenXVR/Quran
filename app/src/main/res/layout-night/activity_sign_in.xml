@@ -32,7 +32,7 @@
             android:textAllCaps="false"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
             android:text="@string/sign_up_with_google"
             android:textColor="@color/white"
             android:textSize="18sp" />
