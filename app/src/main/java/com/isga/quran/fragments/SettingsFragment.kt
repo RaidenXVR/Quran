@@ -26,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.isga.quran.R
 import com.isga.quran.SignInActivity
 import com.isga.quran.data.Reminder
+import com.isga.quran.utils.UserData
+import com.isga.quran.utils.cancelReminder
 import com.isga.quran.utils.createNotificationChannelFun
 import com.isga.quran.utils.parseSurah
 import com.isga.quran.utils.scheduleAllReminders
@@ -58,35 +60,43 @@ class SettingsFragment: Fragment() {
         spinnerFontSize =view.findViewById(R.id.spinnerFontSize)
         logoutButton = view.findViewById(R.id.logout_button)
 
-        debugButt = view.findViewById(R.id.debug_butt)
-
-        debugButt.setOnClickListener {
-            val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            val activeNotifications = notificationManager.activeNotifications
-
-            if (activeNotifications.isEmpty()) {
-                Log.d("Notification", "No active notifications")
-            } else {
-                for (notification in activeNotifications) {
-                    Log.d("Notification", "Active notification: ${notification.id}")
-                }
-            }
-        }
+//        debugButt = view.findViewById(R.id.debug_butt)
+//
+//        debugButt.setOnClickListener {
+//            val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//            val activeNotifications = notificationManager.activeNotifications
+//
+//            if (activeNotifications.isEmpty()) {
+//                Log.d("Notification", "No active notifications")
+//            } else {
+//                for (notification in activeNotifications) {
+//                    Log.d("Notification", "Active notification: ${notification.id}")
+//                }
+//            }
+//        }
 
         parentView = view
 
         // Set up SharedPreferences
-        sharedPreferences = view.context.getSharedPreferences("QuranAppPreferences", MODE_PRIVATE)
+        sharedPreferences = requireContext().getSharedPreferences("QuranAppPreferences", MODE_PRIVATE)
 
         //logout
         logoutButton.setOnClickListener {
             val pref = requireContext().getSharedPreferences("QuranUserData", MODE_PRIVATE)
             val edit = pref.edit()
+            val noAccount = pref.getBoolean("noAccount", false)
             edit.putBoolean("noAccount", false)
+            edit.putString("bookmarks", null)
+            edit.putString("reminders", null)
+            edit.putString("last_read", null)
+            for (rem in UserData.reminders.value!!){
+                cancelReminder(requireContext(), rem.reminderId)
+            }
             edit.apply()
-
-            val auth = FirebaseAuth.getInstance()
-            auth.signOut()
+            if (!noAccount) {
+                val auth = FirebaseAuth.getInstance()
+                auth.signOut()
+            }
             val intent = Intent(requireContext(), SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()
@@ -194,15 +204,4 @@ class SettingsFragment: Fragment() {
         editor.apply()
     }
 
-    private fun createNotificationChannel() {
-        val channel = NotificationChannel(
-            "ReminderChannel",
-            "Daily Reminder",
-            NotificationManager.IMPORTANCE_HIGH
-        ).apply {
-            description = "Channel for daily reminders"
-        }
-        val manager = requireContext().getSystemService(NotificationManager::class.java)
-        manager?.createNotificationChannel(channel)
-    }
 }

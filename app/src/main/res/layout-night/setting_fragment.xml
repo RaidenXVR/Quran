@@ -10,14 +10,16 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:weightSum="1"
-    android:layout_gravity="fill">
+    android:layout_gravity="fill"
+    android:background="@drawable/portrait_bg_dark_png">
 
     <!-- Mode -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        >
         <TextView
             android:id="@+id/textMode"
             android:layout_width="0dp"
@@ -33,7 +35,7 @@
             android:id="@+id/radioGroupMode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_weight="0.6"
             >
 
@@ -144,15 +146,8 @@
             android:text="@string/logout"
             android:backgroundTint="@color/green5"
             android:textColor="@color/black"
+
              />
-        <Button
-            android:id="@+id/debug_butt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Debug"
-
-
-            />
     </LinearLayout>
 
 </LinearLayout>

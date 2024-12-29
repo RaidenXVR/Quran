@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="16dp"
+    android:padding="16dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+        android:layout_marginBottom="8dp">
+
+            <RelativeLayout
+                android:id="@+id/verseBookmark"
+                android:background="@drawable/ic_bookmark_border"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp" />
+
+            <RelativeLayout
+                android:id="@+id/verseListen"
+                android:background="@drawable/ic_listen"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/verseLastRead"
+                android:background="@drawable/ic_outline_flag"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvVerseText"
+            android:fontFamily="@font/utsmanic"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+
+            />
+
+        <TextView
+            android:id="@+id/tvVerseTranslation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#757575"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

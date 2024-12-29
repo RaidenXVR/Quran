@@ -143,7 +143,6 @@ fun cancelReminder(context: Context, reminderId: Int) {
 }
 
 fun updateReminder(context: Context, reminderId: Int, hour: Int, minute: Int, name: String) {
-    Log.d("Reminder Update", "$reminderId $hour $minute")
 
     UserData.updateReminder(context, Reminder(name, reminderId, hour, minute)) {
         if (it) {
@@ -193,6 +192,8 @@ fun updateReminder(context: Context, reminderId: Int, hour: Int, minute: Int, na
                 calendar.timeInMillis,
                 updatedPendingIntent
             )
+            Log.d("Reminder Update", "$reminderId $hour $minute")
+
             Toast.makeText(context, R.string.reminder_update_success, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(context, R.string.general_data_error, Toast.LENGTH_LONG).show()

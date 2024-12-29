@@ -61,7 +61,11 @@ class ReminderAdapter(private val adapterReminders: MutableList<Reminder>) :
                             selectedHour.toString().padStart(2, '0'),
                             selectedMinute.toString().padStart(2, '0')
                         )
-
+                    val toChange = adapterReminders.find { r -> r.reminderId == reminder.reminderId }
+                    toChange!!.hour = selectedHour
+                    toChange.minute = selectedMinute
+                    bindingAdapter?.notifyDataSetChanged()
+                    Log.d("reminderTime", adapterReminders.toString())
 
                 }, hour, minute, true).show()
             }

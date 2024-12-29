@@ -18,7 +18,7 @@ import com.isga.quran.data.Reminder
 import java.util.Date
 
 object UserData {
-    private val _bookmarkList= MutableLiveData<MutableList<Bookmark>>(mutableListOf())
+    private val _bookmarkList = MutableLiveData<MutableList<Bookmark>>(mutableListOf())
     val bookmarkList: LiveData<MutableList<Bookmark>> get() = _bookmarkList
     private val _lastRead = MutableLiveData<Bookmark?>()
     val lastRead: LiveData<Bookmark?> get() = _lastRead
@@ -47,7 +47,7 @@ object UserData {
 
                         //parse_reminders.value
                         val reminderList = gson.toJson(document.get("reminders"))
-                       _reminders.value = gson.fromJson(
+                        _reminders.value = gson.fromJson(
                             reminderList,
                             object : TypeToken<MutableList<Reminder>>() {}.type
                         )
@@ -63,6 +63,19 @@ object UserData {
                         .show()
                 }
 
+        } else{
+            val sharedPreferences = context.getSharedPreferences("QuranUserData", MODE_PRIVATE)
+            val typeBookmarks = object : TypeToken<MutableList<Bookmark>>() {}.type
+            val typeLastRead = object :TypeToken<Bookmark>() {}.type
+            val typeReminders = object: TypeToken<MutableList<Reminder>>(){}.type
+            val jsonBookmarks = sharedPreferences.getString("bookmarks", null)
+            val jsonLastRead = sharedPreferences.getString("last_read", null)
+            val jsonReminders = sharedPreferences.getString("reminders", null)
+
+            _bookmarkList.value = gson.fromJson(jsonBookmarks, typeBookmarks)?: mutableListOf()
+            _lastRead.value = gson.fromJson(jsonLastRead, typeLastRead)
+            _reminders.value = gson.fromJson(jsonReminders, typeReminders)?: mutableListOf()
+
         }
     }
 
@@ -75,7 +88,7 @@ object UserData {
                 if (document.exists()) {
                     userDoc.update("last_read", newLastRead)
                         .addOnSuccessListener {
-                           _lastRead.value = newLastRead
+                            _lastRead.value = newLastRead
 
                             callback(true)
                         }
@@ -92,7 +105,7 @@ object UserData {
                     userDoc.set(data)
                         .addOnSuccessListener {
                             Log.d("update last read success", "Last read updated successfully")
-                           _lastRead.value = newLastRead
+                            _lastRead.value = newLastRead
                             callback(true)
 
                         }
@@ -115,6 +128,7 @@ object UserData {
 
             editor.putString("last_read", gson.toJson(newLastRead))
             editor.apply()
+            _lastRead.value = newLastRead
             callback(true)
         }
     }
@@ -175,6 +189,10 @@ object UserData {
 
             editor.putString("bookmarks", gson.toJson(bms))
             editor.apply()
+
+            _bookmarkList.value = bms
+            Log.d("bookmarks no account", bms.toString())
+            Log.d("sharedPref, no account", "${sharedPreferences.getString("bookmarks", null)}")
             callback(true)
         }
     }
@@ -215,13 +233,15 @@ object UserData {
 
             editor.putString("bookmarks", gson.toJson(bms))
             editor.apply()
+            _bookmarkList.value = bms
+
             callback(true)
         }
     }
 
     fun setReminder(context: Context, reminder: Reminder, callback: (Boolean) -> Unit) {
 
-        val rem =_reminders.value!!.find { rmd -> rmd.reminderId == reminder.reminderId }
+        val rem = _reminders.value!!.find { rmd -> rmd.reminderId == reminder.reminderId }
         if (rem == null) {
             val db = FirestoreInstance.db
             val currentUser = FirebaseAuth.getInstance().currentUser
@@ -232,7 +252,7 @@ object UserData {
                         userDoc.update("reminders", FieldValue.arrayUnion(reminder))
                             .addOnSuccessListener {
                                 Log.d("Add reminder debug", reminder.toString())
-                               _reminders.value!!.add(reminder)
+                                _reminders.value!!.add(reminder)
                                 Log.d("Add Reminder", "Success")
                                 callback(true)
                             }
@@ -250,7 +270,7 @@ object UserData {
                         userDoc.set(data)
                             .addOnSuccessListener {
                                 Log.d("New Add Reminder", "Reminder added successfully")
-                               _reminders.value!!.add(reminder)
+                                _reminders.value!!.add(reminder)
                                 callback(true)
                             }
                             .addOnFailureListener { err ->
@@ -278,6 +298,8 @@ object UserData {
                 rms.add(reminder)
                 editor.putString("reminders", gson.toJson(rms))
                 editor.apply()
+                _reminders.value = rms
+
                 callback(true)
             }
         } else {
@@ -294,12 +316,13 @@ object UserData {
             val userDoc = db.collection("users").document(currentUser.uid)
             userDoc.get().addOnSuccessListener { document ->
                 if (document.exists()) {
-                    val remToDel = _reminders.value!!.find { r -> r.reminderId == reminder.reminderId }
+                    val remToDel =
+                        _reminders.value!!.find { r -> r.reminderId == reminder.reminderId }
 
                     userDoc.update("reminders", FieldValue.arrayRemove(remToDel))
 
                         .addOnSuccessListener {
-                           _reminders.value!!.removeIf { r -> r.reminderId == reminder.reminderId }
+                            _reminders.value!!.removeIf { r -> r.reminderId == reminder.reminderId }
                             Log.d("reminder delete success", remToDel.toString())
                             callback(true)
                         }
@@ -328,6 +351,8 @@ object UserData {
 
             editor.putString("reminders", gson.toJson(rms))
             editor.apply()
+            _reminders.value = rms
+
             callback(true)
 
 
@@ -342,15 +367,17 @@ object UserData {
             val userDoc = db.collection("users").document(currentUser.uid)
             userDoc.get().addOnSuccessListener { document ->
                 if (document.exists()) {
-                    val remToDel = _reminders.value!!.find { r -> r.reminderId == reminder.reminderId }
+                    val remToDel =
+                        _reminders.value!!.find { r -> r.reminderId == reminder.reminderId }
 
                     userDoc.update("reminders", FieldValue.arrayRemove(remToDel))
 
                         .addOnSuccessListener {
                             _reminders.value!!.removeIf { r -> r.reminderId == reminder.reminderId }
-                            userDoc.update("reminders", FieldValue.arrayUnion(reminder)).addOnSuccessListener {
-                                callback(true)
-                            }.addOnFailureListener {err->
+                            userDoc.update("reminders", FieldValue.arrayUnion(reminder))
+                                .addOnSuccessListener {
+                                    callback(true)
+                                }.addOnFailureListener { err ->
                                 Log.d("Update reminder", err.message.toString())
                                 callback(false)
 
@@ -367,6 +394,24 @@ object UserData {
             }
 
 
+        } else {
+            val gson = Gson()
+            val sharedPreferences = context.getSharedPreferences("QuranUserData", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+
+            val remindersJson = sharedPreferences.getString("reminders", null)
+            val type = object : TypeToken<List<Reminder>>() {}.type
+
+            val rms: MutableList<Reminder> = gson.fromJson(remindersJson, type) ?: mutableListOf()
+
+            rms.removeIf { it.reminderId == reminder.reminderId }
+            rms.add(reminder)
+
+            editor.putString("reminders", gson.toJson(rms))
+            editor.apply()
+            _reminders.value = rms
+
+            callback(true)
         }
     }
 
@@ -397,6 +442,7 @@ object UserData {
         }
     }
 }
+
 fun debug() {
     Log.d("calendar", Calendar.getInstance().time.toString())
 }

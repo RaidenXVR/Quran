@@ -1,12 +1,16 @@
 package com.isga.quran
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.credentials.Credential
@@ -20,6 +24,7 @@ import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.isga.quran.data.Bookmark
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -37,6 +42,30 @@ class SignInActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         val pref = getSharedPreferences("QuranUserData", MODE_PRIVATE)
+        val pref2 = getSharedPreferences("QuranAppPreferences", MODE_PRIVATE)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+
+        if (!pref2.contains("mode")) {
+            val userTheme: Boolean
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                userTheme = resources.configuration.isNightModeActive
+            } else {
+                userTheme = resources.configuration.uiMode == Configuration.UI_MODE_NIGHT_YES
+            }
+
+
+            if (userTheme) {
+                pref2.edit().putBoolean("mode", true).apply()
+            } else {
+                pref2.edit().putBoolean("mode", false).apply()
+            }
+        }
+        else{
+            val isDarkMode = pref2.getBoolean("mode", false)
+            AppCompatDelegate.setDefaultNightMode(if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO)
+
+
+        }
 
         if (currentUser != null || pref.getBoolean("noAccount", false)) {
             // The user is already signed in, navigate to MainActivity

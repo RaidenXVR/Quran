@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/surahMain"
+    android:background="@drawable/portrait_bg_dark_png">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerCard"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardBackgroundColor="@color/green5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvSurahName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="Qur'an Q"
+            android:textColor="@color/green1"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSurah"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:fastScrollEnabled="true"
+        android:scrollbars="vertical"
+        app:fastScrollVerticalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollVerticalTrackDrawable="@drawable/scrollbar_track_drawable"
+        app:fastScrollHorizontalThumbDrawable="@drawable/scrollbar_thumb_drawable"
+        app:fastScrollHorizontalTrackDrawable="@drawable/scrollbar_track_drawable"
+        android:scrollbarTrackVertical="@drawable/scrollbar_track_drawable"
+        android:scrollbarThumbVertical="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb_drawable"
+        android:scrollbarTrackHorizontal="@drawable/scrollbar_track_drawable"
+
+        android:scrollbarSize="10dp"/>
+
+</LinearLayout>
